@@ -1,5 +1,4 @@
-﻿# Devexpress RichTextEditor Blazor Isolated Example
-
+﻿# Devexpress RichTextEditor Blazor - OpenSilver Bridge
 ![image](040734.png)
 
 ## Prerequisites
