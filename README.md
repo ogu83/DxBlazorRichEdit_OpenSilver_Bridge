@@ -1,7 +1,6 @@
 ﻿# Devexpress RichTextEditor Blazor Isolated Example
 
-![image](040747.png)
-![image](040824.png)
+![image](040734.png)
 
 ## Prerequisites
 
