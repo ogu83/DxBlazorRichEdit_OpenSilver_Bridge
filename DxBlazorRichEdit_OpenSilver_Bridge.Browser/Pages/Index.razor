@@ -1,0 +1,38 @@
+﻿@page "/"
+@using DotNetForHtml5
+@using DxBlazorRichEdit_OpenSilver_Bridge.Browser.Interop
+@using System.Windows
+@inject IJSRuntime JSRuntime;
+@inject NavigationManager NavManager;
+
+<div id="opensilver-root" style="width:100%; height:100%; overflow: hidden">
+    <param name="InitParams" value="@GetParams()" />
+</div>
+
+@code {
+    private string GetParams()
+    {
+        // Get the query string
+        var query = NavManager.ToAbsoluteUri(NavManager.Uri).GetComponents(UriComponents.Query, UriFormat.UriEscaped);
+        
+        return string.Join(",", query.Split('&'));
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Cshtml5Initializer.Initialize(new UnmarshalledJavaScriptExecutionHandler(JSRuntime));
+    }
+
+    protected override bool ShouldRender() => false;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            Application.RunApplication(() => new DxBlazorRichEdit_OpenSilver_Bridge.App());
+        }
+    }
+}
