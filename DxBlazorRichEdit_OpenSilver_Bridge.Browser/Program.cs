@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace DxBlazorRichEdit_OpenSilver_Bridge.Browser
 {
@@ -22,14 +21,6 @@ namespace DxBlazorRichEdit_OpenSilver_Bridge.Browser
 
             var host = builder.Build();
             await host.RunAsync();
-        }
-
-        public static void RunApplication()
-        {
-            Application.RunApplication(() =>
-            {
-                var app = new DxBlazorRichEdit_OpenSilver_Bridge.App();
-            });
         }
     }
 }
